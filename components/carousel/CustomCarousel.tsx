@@ -1,14 +1,11 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { ProductDataInterface } from "@/interface/productsDataInterface.interface";
-import CustomCard from "../CustomCard/CustomCard";
-import { Typography } from "@mui/material";
+import { Swiper } from "swiper/react";
 
-interface HomeProps {
-  productsData: ProductDataInterface;
+interface HomeProps extends React.ComponentProps<typeof Swiper> {
+  children: React.ReactNode;
 }
 
-const CustomCarousel = ({ productsData }: HomeProps) => {
+const CustomCarousel = ({ children, ...rest }: HomeProps) => {
   return (
     <Swiper
       spaceBetween={50}
@@ -17,21 +14,9 @@ const CustomCarousel = ({ productsData }: HomeProps) => {
       onSwiper={(swiper) => console.log(swiper)}
       scrollbar={{ draggable: true }}
       pagination={{ clickable: true }}
+      {...rest}
     >
-      {productsData?.map((cat) => {
-        return (
-          <>
-            <SwiperSlide
-              style={{ boxShadow: "0px 0px 30px rbga(0, 0, 0, 0.1)" }}
-            >
-              <img src={cat?.cat_thumbnail} alt="" height={20} />
-              <Typography variant="h4" sx={{ textAlign: "center" }}>
-                {cat?.title}
-              </Typography>
-            </SwiperSlide>
-          </>
-        );
-      })}
+      {children}
     </Swiper>
   );
 };
