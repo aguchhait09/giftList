@@ -21,25 +21,15 @@ const CustomCard = ({
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              R
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              {/* <MoreVertIcon /> */}
-            </IconButton>
-          }
-          title={title}
-          subheader={subtitle}
-        />
+        <CardHeader title={title} subheader={subtitle} />
         <CardMedia
           component="img"
-          height={50}
           image={cardImage}
           alt="Paella dish"
+          sx={{
+            maxHeight: 300
+          }}
+          loading="lazy"
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">

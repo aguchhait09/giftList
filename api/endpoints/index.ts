@@ -21,7 +21,8 @@ export const endpoints = {
     faq: "faq/all"
   },
   products: {
-    allProducts: "product-set"
+    allProducts: "product-set",
+    productByCategory: "get-all-product-by-category-id-api"
   }
 };
 
