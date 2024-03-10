@@ -5,9 +5,9 @@ import {
 import CustomCard from "@/components/CustomCard/CustomCard";
 import { CatWiseProductsInterface } from "@/interface/catProducts.interface";
 import { ProductDataInterface } from "@/interface/productsDataInterface.interface";
+import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { Container, Typography, styled } from "@mui/material";
-import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { SwiperSlide } from "swiper/react";
 
@@ -73,7 +73,7 @@ export default function Home({ productsData, catWiseData }: HomeProps) {
           return (
             <>
               <StyledTypography>{cat?.title?.toUpperCase()}</StyledTypography>
-              <Carousel slidesToShow={4}>
+              <Carousel slidesToShow={4} slidesToScroll={4}>
                 {cat?.products?.map((product) => {
                   return (
                     <>
@@ -89,7 +89,7 @@ export default function Home({ productsData, catWiseData }: HomeProps) {
                         <CustomCard
                           title={product?.brand_name}
                           subtitle={product?.product_name.slice(0, 20) + "..."}
-                          cardImage={product?.product_image_src}
+                          cardImage={`${assest.story_img}`}
                           price={product?.product_price}
                           offerPrice={product?.product_sale_price}
                         />

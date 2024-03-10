@@ -1,4 +1,5 @@
 import { customCardProps } from "@/interface/customCard.interface";
+import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import {
   Avatar,
   Card,
@@ -6,10 +7,8 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
-  IconButton,
   Typography
 } from "@mui/material";
-import { red } from "@mui/material/colors";
 
 const CustomCard = ({
   title,
@@ -20,7 +19,7 @@ const CustomCard = ({
 }: customCardProps) => {
   return (
     <>
-      <Card sx={{ maxWidth: 345 }}>
+      {/* <Card sx={{ maxWidth: 345 }}>
         <CardHeader title={title} subheader={subtitle} />
         <CardMedia
           component="img"
@@ -39,6 +38,28 @@ const CustomCard = ({
             {offerPrice}
           </Typography>
         </CardContent>
+      </Card> */}
+      <Card sx={{ maxWidth: 345 }}>
+        {/* <CardMedia
+          sx={{
+            height: 120,
+          }}
+          loading="lazy"
+          image={cardImage}
+        /> */}
+        <img src={cardImage} alt="" height={100} style={{ padding: "15px" }} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="h5" color="text.secondary">
+            {subtitle}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <CustomButtonPrimary>{price as string}</CustomButtonPrimary>
+          <CustomButtonPrimary>{offerPrice as string}</CustomButtonPrimary>
+        </CardActions>
       </Card>
     </>
   );
