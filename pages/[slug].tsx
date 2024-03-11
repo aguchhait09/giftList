@@ -1,3 +1,4 @@
+import React from "react";
 import { allProductsApi } from "@/api/functions/products.api";
 import CustomCard from "@/components/CustomCard/CustomCard";
 import Wrapper from "@/layout/wrapper/Wrapper";
@@ -9,22 +10,21 @@ const SlyedContainer = styled(Container)`
   margin-top: 25px;
 `;
 
-const index = ({ productsData }: HomeProps) => {
+const Index = ({ productsData }: HomeProps) => {
   const router = useRouter();
   const { slug } = router.query;
-  console.log("slug", slug);
-  console.log("Data", productsData);
+  // console.log("slug", slug);
+  // console.log("Data", productsData);
   const data = productsData?.filter((dta) => {
     if (dta?.slug === slug) return dta;
   });
-  console.log("filterDta", data);
+  // console.log("filterDta", data);
 
   return (
     <Wrapper>
       <SlyedContainer>
         {data?.map((item) => {
           return (
-            <>
               <Grid
                 container
                 rowSpacing={1}
@@ -32,11 +32,10 @@ const index = ({ productsData }: HomeProps) => {
               >
                 {item?.products?.map((element) => {
                   return (
-                    <>
                       <Grid item xs={3}>
                         <CustomCard
                           title={element?.brand_name}
-                          subtitle={element?.product_name?.slice(0, 18) + "..."}
+                          subtitle={`${element?.product_name?.slice(0, 18)}` + "..."}
                           cardImage={
                             element?.product_meta_data[3]?.value?.image
                           }
@@ -45,11 +44,9 @@ const index = ({ productsData }: HomeProps) => {
                           subtitleLink={element?.product_link}
                         />
                       </Grid>
-                    </>
                   );
                 })}
               </Grid>
-            </>
           );
         })}
       </SlyedContainer>
@@ -59,6 +56,6 @@ const index = ({ productsData }: HomeProps) => {
 
 export const getServerSideProps = async () => {
   const productsData = await allProductsApi();
-  return { props: { productsData: productsData } };
+  return { props: { productsData } };
 };
-export default index;
+export default Index;

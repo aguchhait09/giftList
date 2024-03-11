@@ -3,6 +3,7 @@ import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Select, { SelectProps } from "@mui/material/Select";
+import { SelectInputProps } from "@mui/material/Select/SelectInput";
 
 const CustomSelectWrapper = styled(Select)`
   &.MuiOutlinedInput-root {
@@ -37,7 +38,7 @@ const CustomSelectWrapper = styled(Select)`
     }
   }
 `;
-interface CustomSelectProps extends SelectProps {
+interface CustomSelectProps extends SelectInputProps {
   children: React.ReactNode;
 }
 const CustomSelect = (props: CustomSelectProps) => {

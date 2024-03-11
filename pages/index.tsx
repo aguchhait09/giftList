@@ -34,7 +34,7 @@ const Carousel = dynamic(() => import("@/components/carousel/CustomCarousel"), {
 
 export default function Home({ productsData, catWiseData }: HomeProps) {
   console.log("dta", catWiseData);
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <Wrapper>
@@ -53,12 +53,12 @@ export default function Home({ productsData, catWiseData }: HomeProps) {
                   <div
                     style={{
                       backgroundColor: "white",
-                      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.3)",
+                      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
                       margin: "18px",
                       borderRadius: "10px",
                       padding: "10px"
                     }}
-                    onClick={()=>router.push(`/${cat?.slug}`)}
+                    onClick={() => router.push(`/${cat?.slug}`)}
                   >
                     <img src={cat?.cat_thumbnail} alt="" height={20} />
                     <Typography
@@ -89,7 +89,7 @@ export default function Home({ productsData, catWiseData }: HomeProps) {
                           style={{
                             backgroundColor: "white",
                             boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.3)",
-                            margin: "18px",
+                            margin: "20px",
                             borderRadius: "10px",
                             padding: "10px"
                           }}
@@ -99,7 +99,9 @@ export default function Home({ productsData, catWiseData }: HomeProps) {
                             subtitle={
                               product?.product_name.slice(0, 20) + "..."
                             }
-                            cardImage={product?.product_meta_data[3]?.value?.image}
+                            cardImage={
+                              product?.product_meta_data[3]?.value?.image
+                            }
                             price={product?.product_price}
                             offerPrice={product?.product_sale_price}
                             subtitleLink={product?.product_link}

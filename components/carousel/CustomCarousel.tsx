@@ -8,28 +8,30 @@ interface HomeProps extends React.ComponentProps<typeof Slider> {
   children: React.ReactNode;
 }
 
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "grey" }}
+      onClick={onClick}
+    />
+  );
+}
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "grey" }}
+      onClick={onClick}
+    />
+  );
+}
+
 const CustomCarousel = ({ children, ...rest }: HomeProps) => {
-  function SampleNextArrow(props: any) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", background: "red" }}
-        onClick={onClick}
-      />
-    );
-  }
-  function SamplePrevArrow(props: any) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", background: "red" }}
-        onClick={onClick}
-      />
-    );
-  }
-  let settings = {
+  
+  const settings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -48,8 +50,10 @@ const CustomCarousel = ({ children, ...rest }: HomeProps) => {
     // >
     //   {children}
     // </Swiper>
-    
-    <Slider {...settings} {...rest}>{children}</Slider>
+
+    <Slider {...settings} {...rest}>
+      {children}
+    </Slider>
   );
 };
 
