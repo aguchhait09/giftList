@@ -1,21 +1,25 @@
 import { customCardProps } from "@/interface/customCard.interface";
-import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import {
   Avatar,
+  Button,
   Card,
   CardActions,
   CardContent,
   CardHeader,
   CardMedia,
+  Divider,
   Typography
 } from "@mui/material";
+import Link from "next/link";
 
 const CustomCard = ({
   title,
   subtitle,
   cardImage,
   price,
-  offerPrice
+  offerPrice,
+  subtitleLink
 }: customCardProps) => {
   return (
     <>
@@ -39,7 +43,7 @@ const CustomCard = ({
           </Typography>
         </CardContent>
       </Card> */}
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, height: 400 }}>
         {/* <CardMedia
           sx={{
             height: 120,
@@ -47,18 +51,46 @@ const CustomCard = ({
           loading="lazy"
           image={cardImage}
         /> */}
-        <img src={cardImage} alt="" height={100} style={{ padding: "15px" }} />
+        <img
+          src={cardImage}
+          alt=""
+          style={{
+            padding: "15px",
+            height: "200px",
+            display: "flex",
+            justifyContent: "center"
+          }}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
           <Typography variant="h5" color="text.secondary">
-            {subtitle}
+            <Link href={`${subtitleLink}`}>{subtitle}</Link>
           </Typography>
         </CardContent>
         <CardActions>
-          <CustomButtonPrimary>{price as string}</CustomButtonPrimary>
-          <CustomButtonPrimary>{offerPrice as string}</CustomButtonPrimary>
+          {offerPrice ? (
+            <>
+              <Button size="small" variant="contained" color="info" disabled >
+                $ {price as string}
+              </Button>
+              <Button size="small" variant="contained" color="info">
+                ${offerPrice as string}
+              </Button>
+            </>
+          ) : (
+            <Button size="small" variant="contained" color="info">
+              $ {price as string}
+            </Button>
+          )}
+        </CardActions>
+        <CardActions sx={{ display: "flex", justifyContent: "center" }}>
+          <Button variant="contained">
+            {" "}
+            <AddShoppingCartIcon fontSize="small" />
+            Add to Cart
+          </Button>
         </CardActions>
       </Card>
     </>

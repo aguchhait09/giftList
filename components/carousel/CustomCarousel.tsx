@@ -3,6 +3,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Link from "next/link";
 
 interface HomeProps extends React.ComponentProps<typeof Slider> {
   children: React.ReactNode;
@@ -48,6 +49,7 @@ const CustomCarousel = ({ children, ...rest }: HomeProps) => {
     // >
     //   {children}
     // </Swiper>
+    
     <Slider {...settings} {...rest}>{children}</Slider>
   );
 };

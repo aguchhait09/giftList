@@ -4,4 +4,5 @@ export interface customCardProps {
     cardImage?: string;
     price?: string;
     offerPrice?: string;
+    subtitleLink?: string
 }

@@ -1,6 +1,6 @@
-export type ProductDataInterface = Root2[]
+export type ProductDataInterface = Products[]
 
-export interface Root2 {
+export interface Products {
   cat_id?: number
   slug?: string
   cat_thumbnail?: string
