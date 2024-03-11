@@ -1,14 +1,10 @@
 import { customCardProps } from "@/interface/customCard.interface";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import {
-  Avatar,
   Button,
   Card,
   CardActions,
   CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
   Typography
 } from "@mui/material";
 import Link from "next/link";

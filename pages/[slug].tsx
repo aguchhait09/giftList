@@ -1,10 +1,5 @@
 import { allProductsApi } from "@/api/functions/products.api";
 import CustomCard from "@/components/CustomCard/CustomCard";
-import {
-  Product,
-  ProductDataInterface,
-  Products
-} from "@/interface/productsDataInterface.interface";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { Container, Grid, styled } from "@mui/material";
 import { useRouter } from "next/router";

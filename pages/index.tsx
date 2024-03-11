@@ -5,14 +5,12 @@ import {
 import CustomCard from "@/components/CustomCard/CustomCard";
 import { CatWiseProductsInterface } from "@/interface/catProducts.interface";
 import { ProductDataInterface } from "@/interface/productsDataInterface.interface";
-import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { Container, Typography, styled } from "@mui/material";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { SwiperSlide } from "swiper/react";
+// import { SwiperSlide } from "swiper/react";
 
 const StyledContainer = styled(Container)`
   margin-top: 25px;
