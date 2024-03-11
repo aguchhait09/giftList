@@ -29,7 +29,7 @@ export interface HomeProps {
 }
 
 const Carousel = dynamic(() => import("@/components/carousel/CustomCarousel"), {
-  ssr: false
+  ssr: true
 });
 
 export default function Home({ productsData, catWiseData }: HomeProps) {
